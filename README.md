@@ -1,6 +1,5 @@
-<div width:200%">
-## [Deep Learning for Black-Box Modeling of Audio Effects](http:link.to.paper)
-</div>
+### [Deep Learning for Black-Box Modeling of Audio Effects](http:link.to.paper)
+
 
 [Accompanying  website](https://mchijmma.github.io/DL-AFx/) for the [paper](http:link.to.paper):
 
