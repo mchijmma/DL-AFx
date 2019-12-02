@@ -1,4 +1,4 @@
-<div id="contentBox" style="margin:0px auto; width:200%">
+<div width:200%">
 ## [Deep Learning for Black-Box Modeling of Audio Effects](http:link.to.paper)
 </div>
 
