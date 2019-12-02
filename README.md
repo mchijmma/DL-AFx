@@ -3,7 +3,7 @@
 
 [Accompanying  website](https://mchijmma.github.io/DL-AFx/) for the [paper](http:link.to.paper):
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Martínez Ramírez M. A.](http://m-marco.com), [Benetos, E.](https://www.eecs.qmul.ac.uk/~emmanouilb/) and [Reiss J. D.](http://www.eecs.qmul.ac.uk/~josh/), “Deep Learning for Black-Box Modeling of Audio Effects” submitted to the journal Applied Sciences, Acoustics and Vibration - Digital Audio Effects special issue, 2019.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Martínez Ramírez M. A.](http://m-marco.com), [Benetos, E.](https://www.eecs.qmul.ac.uk/~emmanouilb/) and [Reiss J. D.](http://www.eecs.qmul.ac.uk/~josh/), “Deep Learning for Black-Box Modeling of Audio Effects” submitted to the Applied Sciences: Acoustics and Vibration - Digital Audio Effects special issue, December, 2019.
 
 [View the source code on GitHub](https://github.com/mchijmma/DL-AFx/tree/master/src)
 
