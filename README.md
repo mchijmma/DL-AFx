@@ -11,7 +11,7 @@
 
 Audio samples from the listening test:
 
-### preamp
+### Preamp
 <div id="contentBox" style="margin:0px auto; width:350%">
 <div id="column1" style="float:left; margin:0; width:15.75%;">
 - Input <br />
@@ -112,8 +112,515 @@ Audio samples from the listening test:
 </div>
 
 &nbsp;
-### limiter
 
+### Limiter
+<div id="contentBox" style="margin:0px auto; width:350%">
+<div id="column1" style="float:left; margin:0; width:15.75%;">
+- Input <br />
+<audio controls="controls">
+    <source src="audio/Limiter/Limiter_27_AET_CRNN_23_input.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/Limiter/Limiter_1_AET_CRNN_23_input.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/Limiter/Limiter_51_AET_CRNN_23_input.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/Limiter/Limiter_59_AET_CRNN_23_input.mp3" type="audio/mp3" />
+</audio>
+</div>
+
+<div id="column2" style="float:left; margin:0;width:15.75%;">
+- CAFx <br />
+<audio controls="controls">
+    <source src="audio/Limiter/Limiter_27_AET_DNN_Local_Dense_SAAF3_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/Limiter/Limiter_1_AET_DNN_Local_Dense_SAAF3_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/Limiter/Limiter_51_AET_DNN_Local_Dense_SAAF3_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/Limiter/Limiter_59_AET_DNN_Local_Dense_SAAF3_output.mp3" type="audio/mp3" />
+</audio>
+</div>
+
+<div id="column3" style="float:left; margin:0;width:15.75%">
+- WaveNet <br />
+<audio controls="controls">
+    <source src="audio/Limiter/Limiter_27_Wavenet2_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/Limiter/Limiter_1_Wavenet2_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/Limiter/Limiter_51_Wavenet2_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/Limiter/Limiter_59_Wavenet2_output.mp3" type="audio/mp3" />
+</audio>
+</div>
+
+<div id="column4" style="float:left; margin:0;width:15.75%">
+- CRAFx <br />
+<audio controls="controls">
+    <source src="audio/Limiter/Limiter_27_AET_CRNN_23_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/Limiter/Limiter_1_AET_CRNN_23_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/Limiter/Limiter_51_AET_CRNN_23_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/Limiter/Limiter_59_AET_CRNN_23_output.mp3" type="audio/mp3" />
+</audio>
+</div>
+
+<div id="column5" style="float:left; margin:0;width:15.75%;">
+- CWAFx <br />
+<audio controls="controls">
+    <source src="audio/Limiter/Limiter_27_AET_Wavenet_1_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/Limiter/Limiter_1_AET_Wavenet_1_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/Limiter/Limiter_51_AET_Wavenet_1_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/Limiter/Limiter_59_AET_Wavenet_1_output.mp3" type="audio/mp3" />
+</audio>
+</div>
+
+<div id="column6" style="float:left; margin:0;width:15.75%;">
+- Reference <br />
+<audio controls="controls">
+    <source src="audio/Limiter/Limiter_27_AET_CRNN_23_target.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/Limiter/Limiter_1_AET_CRNN_23_target.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/Limiter/Limiter_51_AET_CRNN_23_target.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/Limiter/Limiter_59_AET_CRNN_23_target.mp3" type="audio/mp3" />
+</audio>
+</div>
+
+</div>
+
+&nbsp;
+### Leslie speaker: horn tremolo
+<div id="contentBox" style="margin:0px auto; width:350%">
+<div id="column1" style="float:left; margin:0; width:15.75%;">
+- Input <br />
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerHornFast/Leslie_hf_19_AET_CRNN_23_input.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerHornFast/Leslie_hf_4_AET_CRNN_23_input.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerHornFast/Leslie_hf_12_AET_CRNN_23_input.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerHornFast/Leslie_hf_14_AET_CRNN_23_input.mp3" type="audio/mp3" />
+</audio>
+</div>
+
+<div id="column2" style="float:left; margin:0;width:15.75%;">
+- CAFx <br />
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerHornFast/Leslie_hf_19_AET_DNN_Local_Dense_SAAF3_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerHornFast/Leslie_hf_4_AET_DNN_Local_Dense_SAAF3_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerHornFast/Leslie_hf_12_AET_DNN_Local_Dense_SAAF3_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerHornFast/Leslie_hf_14_AET_DNN_Local_Dense_SAAF3_output.mp3" type="audio/mp3" />
+</audio>
+</div>
+
+<div id="column3" style="float:left; margin:0;width:15.75%">
+- WaveNet <br />
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerHornFast/Leslie_hf_19_Wavenet2_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerHornFast/Leslie_hf_4_Wavenet2_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerHornFast/Leslie_hf_12_Wavenet2_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerHornFast/Leslie_hf_14_Wavenet2_output.mp3" type="audio/mp3" />
+</audio>
+</div>
+
+<div id="column4" style="float:left; margin:0;width:15.75%">
+- CRAFx <br />
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerHornFast/Leslie_hf_19_AET_CRNN_23_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerHornFast/Leslie_hf_4_AET_CRNN_23_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerHornFast/Leslie_hf_12_AET_CRNN_23_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerHornFast/Leslie_hf_14_AET_CRNN_23_output.mp3" type="audio/mp3" />
+</audio>
+</div>
+
+<div id="column5" style="float:left; margin:0;width:15.75%;">
+- CWAFx <br />
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerHornFast/Leslie_hf_19_AET_Wavenet_1_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerHornFast/Leslie_hf_4_AET_Wavenet_1_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerHornFast/Leslie_hf_12_AET_Wavenet_1_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerHornFast/Leslie_hf_14_AET_Wavenet_1_output.mp3" type="audio/mp3" />
+</audio>
+</div>
+
+<div id="column6" style="float:left; margin:0;width:15.75%;">
+- Reference <br />
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerHornFast/Leslie_hf_19_AET_CRNN_23_target.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerHornFast/Leslie_hf_4_AET_CRNN_23_target.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerHornFast/Leslie_hf_12_AET_CRNN_23_target.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerHornFast/Leslie_hf_14_AET_CRNN_23_target.mp3" type="audio/mp3" />
+</audio>
+</div>
+
+</div>
+
+&nbsp;
+### Leslie speaker: woofer tremolo
+<div id="contentBox" style="margin:0px auto; width:350%">
+<div id="column1" style="float:left; margin:0; width:15.75%;">
+- Input <br />
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerWooferFast/Leslie_wf_3_AET_CRNN_23_input.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerWooferFast/Leslie_wf_15_AET_CRNN_23_input.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerWooferFast/Leslie_wf_24_AET_CRNN_23_input.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerWooferFast/Leslie_wf_28_AET_CRNN_23_input.mp3" type="audio/mp3" />
+</audio>
+</div>
+
+<div id="column2" style="float:left; margin:0;width:15.75%;">
+- CAFx <br />
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerWooferFast/Leslie_wf_3_AET_DNN_Local_Dense_SAAF3_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerWooferFast/Leslie_wf_15_AET_DNN_Local_Dense_SAAF3_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerWooferFast/Leslie_wf_24_AET_DNN_Local_Dense_SAAF3_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerWooferFast/Leslie_wf_28_AET_DNN_Local_Dense_SAAF3_output.mp3" type="audio/mp3" />
+</audio>
+</div>
+
+<div id="column3" style="float:left; margin:0;width:15.75%">
+- WaveNet <br />
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerWooferFast/Leslie_wf_3_Wavenet2_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerWooferFast/Leslie_wf_15_Wavenet2_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerWooferFast/Leslie_wf_24_Wavenet2_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerWooferFast/Leslie_wf_28_Wavenet2_output.mp3" type="audio/mp3" />
+</audio>
+</div>
+
+<div id="column4" style="float:left; margin:0;width:15.75%">
+- CRAFx <br />
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerWooferFast/Leslie_wf_3_AET_CRNN_23_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerWooferFast/Leslie_wf_15_AET_CRNN_23_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerWooferFast/Leslie_wf_24_AET_CRNN_23_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerWooferFast/Leslie_wf_28_AET_CRNN_23_output.mp3" type="audio/mp3" />
+</audio>
+</div>
+
+<div id="column5" style="float:left; margin:0;width:15.75%;">
+- CWAFx <br />
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerWooferFast/Leslie_wf_3_AET_Wavenet_1_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerWooferFast/Leslie_wf_15_AET_Wavenet_1_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerWooferFast/Leslie_wf_24_AET_Wavenet_1_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerWooferFast/Leslie_wf_28_AET_Wavenet_1_output.mp3" type="audio/mp3" />
+</audio>
+</div>
+
+<div id="column6" style="float:left; margin:0;width:15.75%;">
+- Reference <br />
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerWooferFast/Leslie_wf_3_AET_CRNN_23_target.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerWooferFast/Leslie_wf_15_AET_CRNN_23_target.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerWooferFast/Leslie_wf_24_AET_CRNN_23_target.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerWooferFast/Leslie_wf_28_AET_CRNN_23_target.mp3" type="audio/mp3" />
+</audio>
+</div>
+
+</div>
+
+
+&nbsp;
+### Leslie speaker: horn chorale
+<div id="contentBox" style="margin:0px auto; width:350%">
+<div id="column1" style="float:left; margin:0; width:15.75%;">
+- Input <br />
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerHornSlow/Leslie_hs_7_AET_CRNN_23_input.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerHornSlow/Leslie_hs_11_AET_CRNN_23_input.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerHornSlow/Leslie_hs_19_AET_CRNN_23_input.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerHornSlow/Leslie_hs_30_AET_CRNN_23_input.mp3" type="audio/mp3" />
+</audio>
+</div>
+
+<div id="column2" style="float:left; margin:0;width:15.75%;">
+- CAFx <br />
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerHornSlow/Leslie_hs_7_AET_DNN_Local_Dense_SAAF3_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerHornSlow/Leslie_hs_11_AET_DNN_Local_Dense_SAAF3_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerHornSlow/Leslie_hs_19_AET_DNN_Local_Dense_SAAF3_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerHornSlow/Leslie_hs_30_AET_DNN_Local_Dense_SAAF3_output.mp3" type="audio/mp3" />
+</audio>
+</div>
+
+<div id="column3" style="float:left; margin:0;width:15.75%">
+- WaveNet <br />
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerHornSlow/Leslie_hs_7_Wavenet2_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerHornSlow/Leslie_hs_11_Wavenet2_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerHornSlow/Leslie_hs_19_Wavenet2_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerHornSlow/Leslie_hs_30_Wavenet2_output.mp3" type="audio/mp3" />
+</audio>
+</div>
+
+<div id="column4" style="float:left; margin:0;width:15.75%">
+- CRAFx <br />
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerHornSlow/Leslie_hs_7_AET_CRNN_23_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerHornSlow/Leslie_hs_11_AET_CRNN_23_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerHornSlow/Leslie_hs_19_AET_CRNN_23_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerHornSlow/Leslie_hs_30_AET_CRNN_23_output.mp3" type="audio/mp3" />
+</audio>
+</div>
+
+<div id="column5" style="float:left; margin:0;width:15.75%;">
+- CWAFx <br />
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerHornSlow/Leslie_hs_7_AET_Wavenet_1_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerHornSlow/Leslie_hs_11_AET_Wavenet_1_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerHornSlow/Leslie_hs_19_AET_Wavenet_1_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerHornSlow/Leslie_hs_30_AET_Wavenet_1_output.mp3" type="audio/mp3" />
+</audio>
+</div>
+
+<div id="column6" style="float:left; margin:0;width:15.75%;">
+- Reference <br />
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerHornSlow/Leslie_hs_7_AET_CRNN_23_target.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerHornSlow/Leslie_hs_11_AET_CRNN_23_target.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerHornSlow/Leslie_hs_19_AET_CRNN_23_target.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerHornSlow/Leslie_hs_30_AET_CRNN_23_target.mp3" type="audio/mp3" />
+</audio>
+</div>
+
+</div>
+
+&nbsp;
+### Leslie speaker: woofer chorale
+<div id="contentBox" style="margin:0px auto; width:350%">
+<div id="column1" style="float:left; margin:0; width:15.75%;">
+- Input <br />
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerWooferSlow/Leslie_ws_10_AET_CRNN_23_input.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerWooferSlow/Leslie_ws_11_AET_CRNN_23_input.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerWooferSlow/Leslie_ws_22_AET_CRNN_23_input.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerWooferSlow/Leslie_ws_24_AET_CRNN_23_input.mp3" type="audio/mp3" />
+</audio>
+</div>
+
+<div id="column2" style="float:left; margin:0;width:15.75%;">
+- CAFx <br />
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerWooferSlow/Leslie_ws_10_AET_DNN_Local_Dense_SAAF3_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerWooferSlow/Leslie_ws_11_AET_DNN_Local_Dense_SAAF3_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerWooferSlow/Leslie_ws_22_AET_DNN_Local_Dense_SAAF3_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerWooferSlow/Leslie_ws_24_AET_DNN_Local_Dense_SAAF3_output.mp3" type="audio/mp3" />
+</audio>
+</div>
+
+<div id="column3" style="float:left; margin:0;width:15.75%">
+- WaveNet <br />
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerWooferSlow/Leslie_ws_10_Wavenet2_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerWooferSlow/Leslie_ws_11_Wavenet2_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerWooferSlow/Leslie_ws_22_Wavenet2_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerWooferSlow/Leslie_ws_24_Wavenet2_output.mp3" type="audio/mp3" />
+</audio>
+</div>
+
+<div id="column4" style="float:left; margin:0;width:15.75%">
+- CRAFx <br />
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerWooferSlow/Leslie_ws_10_AET_CRNN_23_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerWooferSlow/Leslie_ws_11_AET_CRNN_23_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerWooferSlow/Leslie_ws_22_AET_CRNN_23_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerWooferSlow/Leslie_ws_24_AET_CRNN_23_output.mp3" type="audio/mp3" />
+</audio>
+</div>
+
+<div id="column5" style="float:left; margin:0;width:15.75%;">
+- CWAFx <br />
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerWooferSlow/Leslie_ws_10_AET_Wavenet_1_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerWooferSlow/Leslie_ws_11_AET_Wavenet_1_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerWooferSlow/Leslie_ws_22_AET_Wavenet_1_output.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerWooferSlow/Leslie_ws_24_AET_Wavenet_1_output.mp3" type="audio/mp3" />
+</audio>
+</div>
+
+<div id="column6" style="float:left; margin:0;width:15.75%;">
+- Reference <br />
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerWooferSlow/Leslie_ws_10_AET_CRNN_23_target.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerWooferSlow/Leslie_ws_11_AET_CRNN_23_target.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerWooferSlow/Leslie_ws_22_AET_CRNN_23_target.mp3" type="audio/mp3" />
+</audio>
+<audio controls="controls">
+    <source src="audio/LeslieSpeakerWooferSlow/Leslie_ws_24_AET_CRNN_23_target.mp3" type="audio/mp3" />
+</audio>
+</div>
+
+</div>
+
+
+
+&nbsp;
 
 
 
