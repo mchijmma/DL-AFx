@@ -3,13 +3,13 @@
 
 [Accompanying  website](https://mchijmma.github.io/DL-AFx/) for the [paper](http:link.to.paper):
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Martínez Ramírez M. A.](http://m-marco.com), [Benetos, E.](https://www.eecs.qmul.ac.uk/~emmanouilb/) and [Reiss J. D.](http://www.eecs.qmul.ac.uk/~josh/), “Deep Learning for &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Black-Box Modeling of Audio Effects” submitted to the Applied Sciences: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Acoustics and Vibration - Digital Audio Effects special issue, December, 2019.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Martínez Ramírez M. A.](http://m-marco.com), [Benetos, E.](https://www.eecs.qmul.ac.uk/~emmanouilb/) and [Reiss J. D.](http://www.eecs.qmul.ac.uk/~josh/), “Deep Learning for &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Black-Box Modeling of Audio Effects” submitted to the Applied Sciences: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Acoustics and Vibration - Digital Audio Effects special issue, December, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2019.
 
 [View the source code on GitHub](https://github.com/mchijmma/DL-AFx/tree/master/src)
 
 [Download the dataset](https://link.to.dataset)
 
-Audio samples from the test subsets:
+Audio samples from the listening test:
 
 ### preamp
 <div id="contentBox" style="margin:0px auto; width:350%">
@@ -117,8 +117,8 @@ Audio samples from the test subsets:
 
 
 
-<p>Please use Mozilla Firefox or Google Chrome.
-This project is maintained by <a href="https://m-marco.com">{{ "Marco Martínez" }}</a>.</p>
+Please use Mozilla Firefox or Google Chrome.
+This project is maintained by <a href="https://m-marco.com">{{ "Marco Martínez" }}</a>.
 
 <!--
 &nbsp;
