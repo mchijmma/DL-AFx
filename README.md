@@ -8,7 +8,7 @@
 
 [Download the dataset](https://link.to.dataset)
 
-Audio samples from the test subsets: 
+Audio samples from the test subsets:
 
 ### preamp
 <div id="contentBox" style="margin:0px auto; width:350%">
@@ -114,6 +114,10 @@ Audio samples from the test subsets:
 ### limiter
 
 
+
+
+<p>Please use Mozilla Firefox or Google Chrome.</p>
+<p>This project is maintained by <a href="https://m-marco.com">{{ "Marco Martínez" }}</a>.</p>
 
 <!--
 &nbsp;
