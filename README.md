@@ -1,4 +1,6 @@
+<div id="contentBox" style="margin:0px auto; width:200%">
 ## [Deep Learning for Black-Box Modeling of Audio Effects](http:link.to.paper)
+</div>
 
 [Accompanying  website](https://mchijmma.github.io/DL-AFx/) for the [paper](http:link.to.paper):
 
@@ -116,8 +118,8 @@ Audio samples from the test subsets:
 
 
 
-<p>Please use Mozilla Firefox or Google Chrome.</p>
-<p>This project is maintained by <a href="https://m-marco.com">{{ "Marco Martínez" }}</a>.</p>
+<p>Please use Mozilla Firefox or Google Chrome.
+This project is maintained by <a href="https://m-marco.com">{{ "Marco Martínez" }}</a>.</p>
 
 <!--
 &nbsp;
