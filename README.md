@@ -3,7 +3,7 @@
 [Martínez Ramírez M. A.](http://m-marco.com), [Benetos, E.](https://www.eecs.qmul.ac.uk/~emmanouilb/) and [Reiss J. D.](http://www.eecs.qmul.ac.uk/~josh/), “Deep Learning for Black-Box Modeling of Audio Effects” submitted to the journal Applied Sciences, Acoustics and Vibration - Digital Audio Effects special issue, 2019.
 
 ### preamp
-<div id="contentBox" style="margin:0px auto; width:250%">
+<div id="contentBox" style="margin:0px auto; width:350%">
 <div id="column1" style="float:left; margin:0; width:22%;">
 - Input <br />
 <audio controls="controls">
@@ -52,7 +52,7 @@
 </audio>
 </div>
 
-<div id="column4" style="float:left; margin:0;width:10%">
+<div id="column4" style="float:left; margin:0;width:22%">
 - CRAFx <br />
 <audio controls="controls">
     <source src=""audio/Preamp/Preamp_32_AET_CRNN_23_output.mp3" type="audio/mp3" />
@@ -84,7 +84,7 @@
 </audio>
 </div>
 
-<div id="column6" style="float:left; margin:0;width:22%;">
+<div id="column6" style="float:left; margin:0;width:10%;">
 - reference <br />
 <audio controls="controls">
     <source src=""audio/Preamp/Preamp_32_AET_CRNN_23_target.mp3" type="audio/mp3" />
