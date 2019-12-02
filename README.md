@@ -23,7 +23,7 @@
 <div id="column2" style="float:left; margin:0;width:16%;">
 - CAFx <br />
 <audio controls="controls">
-    <source src=""audio/Preamp/Preamp_32_AET_DNN_Local_Dense_SAAF3_output.mp3" type="audio/mp3" />
+    <source src=""audio/Preamp/Preamp_24_AET_DNN_Local_Dense_SAAF3_output.mp3" type="audio/mp3" />
 </audio>
 <audio controls="controls">
     <source src="audio/Preamp/Preamp_24_AET_DNN_Local_Dense_SAAF3_output.mp3" type="audio/mp3" />
