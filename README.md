@@ -4,7 +4,7 @@
 
 ### preamp
 <div id="contentBox" style="margin:0px auto; width:350%">
-<div id="column1" style="float:left; margin:0; width:22%;">
+<div id="column1" style="float:left; margin:0; width:10%;">
 - Input <br />
 <audio controls="controls">
     <source src="audio/Preamp/Preamp_32_AET_CRNN_23_input.mp3" type="audio/mp3" />
@@ -20,7 +20,7 @@
 </audio>
 </div>
 
-<div id="column2" style="float:left; margin:0;width:22%;">
+<div id="column2" style="float:left; margin:0;width:10%;">
 - CAFx <br />
 <audio controls="controls">
     <source src=""audio/Preamp/Preamp_32_AET_DNN_Local_Dense_SAAF3_output.mp3" type="audio/mp3" />
@@ -36,7 +36,7 @@
 </audio>
 </div>
 
-<div id="column3" style="float:left; margin:0;width:22%">
+<div id="column3" style="float:left; margin:0;width:10%">
 - WaveNet <br />
 <audio controls="controls">
     <source src=""audio/Preamp/Preamp_32_Wavenet2_output.mp3" type="audio/mp3" />
@@ -52,7 +52,7 @@
 </audio>
 </div>
 
-<div id="column4" style="float:left; margin:0;width:22%">
+<div id="column4" style="float:left; margin:0;width:10%">
 - CRAFx <br />
 <audio controls="controls">
     <source src=""audio/Preamp/Preamp_32_AET_CRNN_23_output.mp3" type="audio/mp3" />
@@ -68,7 +68,7 @@
 </audio>
 </div>
 
-<div id="column5" style="float:left; margin:0;width:22%;">
+<div id="column5" style="float:left; margin:0;width:10%;">
 - CWAFx <br />
 <audio controls="controls">
     <source src=""audio/Preamp/Preamp_AET_Wavenet_1_output.mp3" type="audio/mp3" />
