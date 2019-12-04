@@ -7,7 +7,7 @@
 
 [View the source code on GitHub](https://github.com/mchijmma/DL-AFx/tree/master/src)
 
-[Download the dataset](https://link.to.dataset)
+[Download the dataset](https://zenodo.org/record/3562442)
 
 Audio samples from the listening test:
 
