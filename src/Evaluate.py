@@ -78,6 +78,9 @@ def evaluate(cfg, model_type):
     # load trained model, in this case 'model_0_chk.h5':
     nameModel = 'model_0'
     model.load_weights(model_config['modelsPath']+nameModel+'_chk.h5', by_name=True) 
+    
+    os.mkdir('./Audio_'+nameModel)
+   
 
     for idx in range(Xtest.shape[0]):
 
@@ -87,7 +90,7 @@ def evaluate(cfg, model_type):
         Ztest_waveform = Utils.overlap(Z, 32000,
                                        model_config['winLength'], model_config['winLength']//2, windowing=True, rate=2)
 
-        librosa.output.write_wav('./Audio/'+nameModel+'_'+str(idx)+'.wav',
+        librosa.output.write_wav('./Audio_'+nameModel+'/'+nameModel+_+str(idx)+'.wav',
                              Ztest_waveform, 16000, norm=False)
 
     print('Evaluation finished.')
