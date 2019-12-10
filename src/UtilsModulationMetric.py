@@ -13,15 +13,10 @@ from sklearn.metrics.pairwise import paired_distances
 from collections import OrderedDict
 import sys
 import os
-# from fnmatch import fnmatch
-
-# import librosa
-# import librosa.display
 import scipy
 import numpy as np 
-import pandas as pd
-# from sklearn.preprocessing import normalize
-# from sklearn.metrics import mean_absolute_error
+
+
 
 
 
@@ -73,8 +68,8 @@ def getEnvelope(x, power = True, downsample = None):
         if power:
             amplitude_envelope = np.power(amplitude_envelope, 0.3)
         if downsample:
-#             amplitude_envelope = librosa.resample(amplitude_envelope, downsample[0], downsample[1]) 
-            amplitude_envelope = scipy.signal.resample(amplitude_envelope, len(amplitude_envelope)//(downsample[0]//downsample[1]))
+            amplitude_envelope = scipy.signal.resample(amplitude_envelope,
+                                                       len(amplitude_envelope)//(downsample[0]//downsample[1]))
         envs.append(amplitude_envelope)
     envs = np.asarray(envs)
     
@@ -101,8 +96,7 @@ def getModulationPower(x_m, x_e):
     m = []
     for i in range(kGbands):
         a = scipy.stats.describe(x_m[i]**2)
-        m.append(a[2])#/x_e['var'][i])
-#         m.append(np.mean(x_m[i])/x_e['var'][i])
+        m.append(a[2])
     return np.asarray(m) 
 
 def getModulationSpectrum(x):

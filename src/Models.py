@@ -67,7 +67,12 @@ def pretrainingModel(win_length, filters, kernel_size_1, learning_rate):
 
 
 #CAFx model. 
-
+'''Architecture taken from:
+    Modeling nonlinear audio effects with end-to-end deep neural networks, Martínez Ramírez M. A. and Reiss J. D.,
+    in the IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP), Brighton, UK, May 2019.
+    
+    https://mchijmma.github.io/modeling-nonlinear/
+     '''
 def CAFx(win_length, filters, kernel_size_1, learning_rate):
 
     x = Input(shape=(win_length, 1), name='input')
@@ -124,6 +129,13 @@ def CAFx(win_length, filters, kernel_size_1, learning_rate):
 
 
 # CRAFx model.
+
+'''Architecture taken from:
+    A general-purpose deep learning approach to model time-varying audio effects, Martínez Ramírez M. A., Benetos E. and  Reiss J. D., in the 22nd International Conference on Digital Audio Effects (DAFx-19), Birmingham, UK, September 2019.
+    
+    https://mchijmma.github.io/modeling-time-varying/
+     '''
+
 
 def se_block(x, num_features, weight_decay=0., amplifying_ratio=16, idx = 1):
     x = Multiply(name='dnn-saaf-se_%s'%idx)([x, se_fn(x, amplifying_ratio, idx)])
