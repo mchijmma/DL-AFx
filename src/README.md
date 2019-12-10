@@ -1,4 +1,4 @@
-# Model_training
+## Deep learning for black-box modeling of audio effects - source code
 
 Python packages:
 
@@ -14,7 +14,7 @@ brian==1.4.4
 json==2.0.9
 ```
 
-## Training model
+## Training and evaluation of models
 
 `python main.py with model_type='pretraining'` 
 
