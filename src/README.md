@@ -9,6 +9,7 @@ sacred==0.7.7
 tensorflow-gpu==1.11.0
 keras==2.2.4
 librosa==0.6.0
+sklearn==0.20.2
 ```
 
 ## Training model
