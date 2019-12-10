@@ -3,17 +3,12 @@ from __future__ import print_function
 
 import sys
 import os
-from collections import OrderedDict
-import json
 
 from sacred import Experiment
 from Config import config_ingredient
-# from Audio import processAudioFiles
 import Models
 from Layers import Generator, GeneratorWaveNet, GeneratorContext
 import Utils
-# from Utils import dumpPickle
-
 
 ex = Experiment('model training', ingredients=[config_ingredient])
 
@@ -21,12 +16,15 @@ import Evaluate
 import numpy as np
 import math
 
-# model_type should be 'CAFx', 'WaveNet', 'CRAFx', 'CWAFx'
+# model_type should be 'pretraining', 'CAFx', 'WaveNet', 'CRAFx' or 'CWAFx'
 
 @ex.automain
 def main(cfg, model_type):
    
     model_config = cfg[model_type]
+    
+    if os.path.isdir(model_config['modelsPath']) == False:
+        os.mkdir(model_config['modelsPath'])
 
     i = 0
     while os.path.exists(model_config['modelsPath']+'model_%s.pkl' % i):
@@ -44,6 +42,13 @@ def main(cfg, model_type):
         Ytrain = np.random.rand(1, 32000, 1)
         Xval = np.random.rand(1, 32000, 1)
         Yval = np.random.rand(1, 32000, 1)
+        
+        # since the samples are 2 secs long, we zero pad 4*hop_size samples at the end of the recording. This for the 4 
+        # subsequent frames in the Leslie modeling tasks.
+        Xtrain = Utils.cropAndPad(Xtrain, crop = 0, pad = 4*model_config['winLength']//2)
+        Ytrain = Utils.cropAndPad(Ytrain, crop = 0, pad = 4*model_config['winLength']//2)
+        Xval = Utils.cropAndPad(Xval, crop = 0, pad = 4*model_config['winLength']//2)
+        Yval = Utils.cropAndPad(Yval, crop = 0, pad = 4*model_config['winLength']//2)
 
 
         if model_type in 'pretraining':
@@ -74,8 +79,10 @@ def main(cfg, model_type):
                                    model_config['wavenetConfig'])
 
 
-            trainGen = GeneratorWaveNet(Xtrain, Ytrain, model_config['winLength'], 4096, model_config['winLength']//2)
-            valGen = GeneratorWaveNet(Xval, Yval, model_config['winLength'], 4096, model_config['winLength']//2)
+            trainGen = GeneratorWaveNet(Xtrain, Ytrain, model_config['wavenetConfig']['model']['input_length'],
+                                        model_config['winLength'], model_config['winLength']//2)
+            valGen = GeneratorWaveNet(Xval, Yval, model_config['wavenetConfig']['model']['input_length'],
+                                        model_config['winLength'], model_config['winLength']//2)
 
         elif model_type in 'CRAFx':
 
@@ -127,28 +134,28 @@ def main(cfg, model_type):
                            validation_steps=len(Xval),
                            shuffle=True)
 
-        print('Reducing Learning rate by 4')
+#         print('Reducing Learning rate by 4')
 
-        symbolic_weights = getattr(model.optimizer, 'weights')
-        weight_values = Models.K.batch_get_value(symbolic_weights)
+#         symbolic_weights = getattr(model.optimizer, 'weights')
+#         weight_values = Models.K.batch_get_value(symbolic_weights)
 
-        model.compile(loss='mae',
-                      optimizer=Models.Adam(lr=model_config['learningRate']/4))
+#         model.compile(loss='mae',
+#                       optimizer=Models.Adam(lr=model_config['learningRate']/4))
 
-        model.load_weights(model_config['modelsPath']+model_config['modelName']+'_chk.h5', by_name=True)
+#         model.load_weights(model_config['modelsPath']+model_config['modelName']+'_chk.h5', by_name=True)
 
-        model.fit_generator(trainGen,
-                           steps_per_epoch=None,
-                           epochs=model_config['epoch'],
-                           verbose=2,
-                           callbacks = [checkpointer, earlyStopping],
-                           validation_data = valGen,
-                           validation_steps=len(Xval),
-                           shuffle=True)
+#         model.fit_generator(trainGen,
+#                            steps_per_epoch=None,
+#                            epochs=model_config['epoch'],
+#                            verbose=2,
+#                            callbacks = [checkpointer, earlyStopping],
+#                            validation_data = valGen,
+#                            validation_steps=len(Xval),
+#                            shuffle=True)
 
         print('Training finished.')
         
-        Evaluate.evaluate(cfg, model_type)
+        Evaluate.evaluate(cfg, model_type, model_config['modelName'])
 
     except Exception as e: 
         print(e)

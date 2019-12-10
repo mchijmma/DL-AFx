@@ -9,12 +9,15 @@ from Config import config_ingredient
 import Models
 from Layers import Generator, GeneratorWaveNet, GeneratorContext
 import Utils
+import UtilsModulationMetric
 import librosa
 import numpy as np
 import math
+import json
 
+kSR = 16000
 
-def evaluate(cfg, model_type):
+def evaluate(cfg, model_type, nameModel):
    
     model_config = cfg[model_type]
 
@@ -23,6 +26,13 @@ def evaluate(cfg, model_type):
     # Xtest, Ytestshould be tensors of shape (number_of_recordings, number_of_samples, 1) 
     Xtest = np.random.rand(1, 32000, 1)
     Ytest = np.random.rand(1, 32000, 1)
+    
+    # zero pad at the end as well. 
+    Xtest = Utils.cropAndPad(Xtest, crop = 0, pad = 4*model_config['winLength']//2)
+    Ytest = Utils.cropAndPad(Ytest, crop = 0, pad = 4*model_config['winLength']//2)
+    
+    kLen = Xtest.shape[1]
+    kBatch = int(kLen/model_config['winLength']//2 + 1)
 
     if model_type in 'pretraining':
 
@@ -50,7 +60,8 @@ def evaluate(cfg, model_type):
                                model_config['wavenetConfig'])
 
 
-        testGen = GeneratorWaveNet(Xtest, Ytest, model_config['winLength'], 4096, model_config['winLength']//2)
+        testGen = GeneratorWaveNet(Xtest, Ytest, model_config['wavenetConfig']['model']['input_length'],
+                                        model_config['winLength'], model_config['winLength']//2)
 
 
     elif model_type in 'CRAFx':
@@ -75,23 +86,49 @@ def evaluate(cfg, model_type):
 
 
 
-    # load trained model, in this case 'model_0_chk.h5':
-    nameModel = 'model_0'
+    # load trained model
+    
     model.load_weights(model_config['modelsPath']+nameModel+'_chk.h5', by_name=True) 
     
     if os.path.isdir('./Audio_'+nameModel) == False:
         os.mkdir('./Audio_'+nameModel)
    
-
+    metrics = {}
+    mae = []
+    mfcc_cosine = []
+    mse_y = []
+    mse_z = []
     for idx in range(Xtest.shape[0]):
 
         x = testGen[idx][0]
-        Z =  model.predict(x)
-
-        Ztest_waveform = Utils.overlap(Z, 32000,
+        Z =  model.predict(x, batch_size=kBatch)
+        Ztest_waveform = Utils.overlap(Z, kLen,
                                        model_config['winLength'], model_config['winLength']//2, windowing=True, rate=2)
+        
+        Ytest_waveform = Ytest[idx].reshape(Ytest[idx].shape[0])
 
         librosa.output.write_wav('./Audio_'+nameModel+'/'+nameModel+'_'+str(idx)+'.wav',
-                             Ztest_waveform, 16000, norm=False)
-
+                             Ztest_waveform, kSR, norm=False)
+        
+        
+        mae.append(Utils.getMAEnormalized(Ytest_waveform, Ztest_waveform))
+        d = Utils.getMSE_MFCC(Ytest_waveform, Ztest_waveform, kSR, mean_norm=False)    
+        mfcc_cosine.append(d['cosine'])
+        ms, e_y, _ = UtilsModulationMetric.getMP(Ytest_waveform, kLen)
+        ms, e_z, _ = UtilsModulationMetric.getMP(Ztest_waveform, kLen)
+        mse_y.append(e_y)
+        mse_z.append(e_z)
+        
+    d = Utils.getDistances(np.asarray(mse_y), np.asarray(mse_z))    
+    metrics['mae'] = round(np.mean(mae), 5)
+    metrics['mfcc_cosine'] = round(np.mean(mfcc_cosine), 5)
+    metrics['msed'] = round(np.mean(d['euclidean']), 5)
+    
+    for metric in metrics.items():
+            print(metric)
+        
+    with open(model_config['modelsPath']+nameModel+'_metrics.json', 'w') as outfile:
+        json.dump(metrics, outfile)
+        
+ 
     print('Evaluation finished.')

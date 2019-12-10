@@ -56,7 +56,7 @@ def cfg():
     
     WaveNet = { 'epoch' : 1,
                     'learningRate' : 0.0001,
-                    'winLength' : 5118,
+                    'winLength' : 4096,
                     'modelsPath': './Models/',
                     'monitorLoss': 'val_loss',
                     'wavenetConfig': {

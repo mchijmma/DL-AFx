@@ -360,7 +360,7 @@ def wavenet(data_input, config, contextFrames=0, output_channels=1, context=True
                                                   use_bias=True, name='final_conv_1d')(data_out)
 
 
-    data_out = keras.layers.Conv1D(output_channels, 1)(data_out)
+    
     
     return data_out
 
@@ -373,10 +373,16 @@ def WaveNet(learning_rate, wavenetConfig):
     
     data_out = wavenet(data_input, wavenetConfig)
     
+    data_out = keras.layers.Conv1D(1, 1, name='conv1d_1')(data_out)
+    
     model = Model(inputs=[data_input], outputs=[data_out])     
+    
+ 
         
     model.compile(loss='mae',
                   optimizer=Adam(lr=learning_rate))
+    
+    
     
     return model
 

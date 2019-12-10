@@ -1,15 +1,18 @@
+from __future__ import division
+
 import numpy as np
 import pickle
 import random
 import librosa
 import scipy
 
-# from __main__ import model_config['seed']
 
 random.seed(4264523625)
 
 import scipy
 from scipy.signal import lfilter
+from sklearn.metrics import mean_absolute_error, mean_squared_error
+from sklearn.metrics.pairwise import paired_distances
 
 
 def dumpPickle(d, name, path):
@@ -39,18 +42,7 @@ def Filter(x, sr, fType):
         for a in x:
             audio.append(lowpass(a[:,0], 800, sr, tabs = 10000))
     return np.expand_dims(np.asarray(audio),-1)   
-    
-def trimDataset(x, pre = 0, post = None):
-    X = []
-    for x_ in x:
-        X_ = (x_[pre:,0])
-        if post:
-            zeros = np.zeros((post,))
-            X_ = np.concatenate((X_,zeros))
-        X.append(X_)
-    X = np.asarray(X)
-    
-    return X.reshape(x.shape[0],-1,1)      
+      
 
 
 def slicing(x, win_length, hop_length, center = True, windowing = True, pad = 0):
@@ -88,16 +80,68 @@ def overlap(x, x_len, win_length, hop_length, windowing = True, rate = 1):
     return np.float32(y*rate)   
 
 
-
+def cropAndPad(x, crop = 0, pad = None):
+    X = []
+    for x_ in x:
+        X_ = (x_[crop:,0])
+        if pad:
+            zeros = np.zeros((pad,))
+            X_ = np.concatenate((X_,zeros))
+        X.append(X_)
+    X = np.asarray(X)
     
-# def compute_receptive_field_length(stacks, dilations, filter_length, target_field_length):
+    return X.reshape(x.shape[0],-1,1)   
 
-#     half_filter_length = (filter_length-1)/2
-#     length = 0
-#     for d in dilations:
-#         length += d*half_filter_length
-#     length = 2*length
-#     length = stacks * length
-#     length += target_field_length
-#     return int(length)
+# objective Metrics
+
+
+def getDistances(x,y):
+
+    distances = {}
+    distances['mae'] = mean_absolute_error(x, y)
+    distances['mse'] = mean_squared_error(x, y)
+    distances['euclidean'] = np.mean(paired_distances(x, y, metric='euclidean'))
+    distances['manhattan'] = np.mean(paired_distances(x, y, metric='manhattan'))
+    distances['cosine'] = np.mean(paired_distances(x, y, metric='cosine'))
+   
+    distances['mae'] = round(distances['mae'], 5)
+    distances['mse'] = round(distances['mse'], 5)
+    distances['euclidean'] = round(distances['euclidean'], 5)
+    distances['manhattan'] = round(distances['manhattan'], 5)
+    distances['cosine'] = round(distances['cosine'], 5)
+    
+    return distances
+
+# mae
+
+def getMAEnormalized(ytrue, ypred):
+    
+    ratio = np.mean(np.abs(ytrue))/np.mean(np.abs(ypred))
+
+    return mean_absolute_error(ytrue, ratio*ypred)
+
+# mfcc_cosine
+
+
+def getMFCC(x, sr, mels=40, mfcc=13, mean_norm=False):
+    
+    melspec = librosa.feature.melspectrogram(y=x, sr=sr, S=None,
+                                     n_fft=4096, hop_length=2048,
+                                     n_mels=mels, power=2.0)
+    melspec_dB = librosa.power_to_db(melspec, ref=np.max)
+    mfcc = librosa.feature.mfcc(S=melspec_dB, sr=sr, n_mfcc=mfcc)
+    if mean_norm:
+        mfcc -= (np.mean(mfcc, axis=0))
+    return mfcc
+
+        
+def getMSE_MFCC(y_true, y_pred, sr, mels=40, mfcc=13, mean_norm=False):
+    
+    ratio = np.mean(np.abs(y_true))/np.mean(np.abs(y_pred))
+    y_pred =  ratio*y_pred
+    
+    y_mfcc = getMFCC(y_true, sr, mels=mels, mfcc=mfcc, mean_norm=mean_norm)
+    z_mfcc = getMFCC(y_pred, sr, mels=mels, mfcc=mfcc, mean_norm=mean_norm)
+    
+    return getDistances(y_mfcc[:,:], z_mfcc[:,:]) 
 
