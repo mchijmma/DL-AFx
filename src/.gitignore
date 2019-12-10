@@ -2,4 +2,4 @@
 *.wav
 *.h5
 *.pkl
-
+*json
