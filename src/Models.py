@@ -68,7 +68,7 @@ def pretrainingModel(win_length, filters, kernel_size_1, learning_rate):
 
 #CAFx model. 
 '''Architecture taken from:
-    Modeling nonlinear audio effects with end-to-end deep neural networks, Martínez Ramírez M. A. and Reiss J. D.,
+    Modeling nonlinear audio effects with end-to-end deep neural networks, Martinez Ramirez M. A. and Reiss J. D.,
     in the IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP), Brighton, UK, May 2019.
     
     https://mchijmma.github.io/modeling-nonlinear/
@@ -131,7 +131,7 @@ def CAFx(win_length, filters, kernel_size_1, learning_rate):
 # CRAFx model.
 
 '''Architecture taken from:
-    A general-purpose deep learning approach to model time-varying audio effects, Martínez Ramírez M. A., Benetos E. and  Reiss J. D., in the 22nd International Conference on Digital Audio Effects (DAFx-19), Birmingham, UK, September 2019.
+    A general-purpose deep learning approach to model time-varying audio effects, Martinez Ramirez M. A., Benetos E. and  Reiss J. D., in the 22nd International Conference on Digital Audio Effects (DAFx-19), Birmingham, UK, September 2019.
     
     https://mchijmma.github.io/modeling-time-varying/
      '''
@@ -465,4 +465,55 @@ def CWAFx(win_length, filters, kernel_size_1, learning_rate, wavenetConfig):
 
 
 
+# Models from previous papers:
 
+
+# DNNAFx model.
+
+'''Architecture taken from:
+    End-to-end equalization with convolutional neural networks, Martinez Ramirez M. A. and Reiss J. D., in the 21st International Conference on Digital Audio Effects (DAFx-18), Aveiro, Portugal, September 2018.
+    
+    https://mchijmma.github.io/end-to-end-equalization/
+     '''
+
+# Model used for the dafx paper. 
+def DNNAFx(win_length, filters, kernel_size_1, learning_rate):
+
+    x = Input(shape=(win_length, 1), name='input')
+
+    conv = Conv1D(filters, kernel_size_1, strides=1, padding='same',
+                       kernel_initializer='lecun_uniform',
+                       input_shape=(win_length, 1), name='conv')
+    
+    conv_smoothing = Conv1D_local(filters, kernel_size_1*2, strides=1,
+                                         padding='same', name='conv_smoothing',
+                                         kernel_initializer='lecun_uniform')
+
+
+    dense_in = Dense_local(win_length//64, activation='softplus', name='dense_local_in')
+
+    deconv = Conv1D_tied(1, kernel_size_1, conv, padding='same', name='deconv')
+    
+    X = conv(x)
+    X_abs = Activation(K.abs, name='conv_activation')(X)
+    M = conv_smoothing(X_abs)
+    M = Activation('softplus', name='conv_smoothing_activation')(M)
+    P = X
+    Z = MaxPooling1D(pool_size=win_length//64, name='max_pooling')(M)
+    Z = Lambda((toPermuteDimensions), name='permute_dimensions_dnn_in')(Z)
+
+    Z = dense_in(Z)
+    Z = TimeDistributed(Dense(win_length//64, activation = 'softplus'), name='dense_out')(Z)
+    Z = Lambda((toPermuteDimensions), name='permute_dimensions_dnn_out')(Z)
+    M_ = UpSampling1D(size=win_length//64, name='up_sampling_naive')(Z)
+           
+    Y = Multiply(name='phase_unpool_multiplication')([P,M_])
+    Y = deconv(Y)
+         
+    model = Model(inputs=[x], outputs=[Y])
+
+    model.compile(loss={'deconv': 'mae'},
+                        loss_weights={'deconv': 1.0},
+                        optimizer=Adam(lr=learning_rate))
+
+    return model
