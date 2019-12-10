@@ -10,6 +10,8 @@ tensorflow-gpu==1.11.0
 keras==2.2.4
 librosa==0.6.0
 sklearn==0.20.2
+brian==1.4.4
+json==2.0.9
 ```
 
 ## Training model
