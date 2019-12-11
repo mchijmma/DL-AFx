@@ -5,9 +5,9 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Martínez Ramírez M. A.](http://m-marco.com), [Benetos, E.](https://www.eecs.qmul.ac.uk/~emmanouilb/) and [Reiss J. D.](http://www.eecs.qmul.ac.uk/~josh/), “Deep Learning for &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Black-Box Modeling of Audio Effects” submitted to the Applied Sciences: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Acoustics and Vibration - Digital Audio Effects special issue, December, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2019.
 
-[View the source code](https://github.com/mchijmma/DL-AFx/tree/master/src)
+[View the source code.](https://github.com/mchijmma/DL-AFx/tree/master/src)
 
-[Download the dataset](https://zenodo.org/record/3562442)
+[Download the dataset.](https://zenodo.org/record/3562442)
 
 Audio samples from the listening test:
 
