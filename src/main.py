@@ -107,7 +107,7 @@ def main(cfg, model_type):
 
         model.summary()
 
-        # load pretrained layers if available:
+        # load pretrained model if available:
     #         model.load_weights(path_preatrained_model, by_name=True) 
 
 
@@ -134,24 +134,24 @@ def main(cfg, model_type):
                            validation_steps=len(Xval),
                            shuffle=True)
 
-#         print('Reducing Learning rate by 4')
+        print('Reducing Learning rate by 4')
 
-#         symbolic_weights = getattr(model.optimizer, 'weights')
-#         weight_values = Models.K.batch_get_value(symbolic_weights)
+        symbolic_weights = getattr(model.optimizer, 'weights')
+        weight_values = Models.K.batch_get_value(symbolic_weights)
 
-#         model.compile(loss='mae',
-#                       optimizer=Models.Adam(lr=model_config['learningRate']/4))
+        model.compile(loss='mae',
+                      optimizer=Models.Adam(lr=model_config['learningRate']/4))
 
-#         model.load_weights(model_config['modelsPath']+model_config['modelName']+'_chk.h5', by_name=True)
+        model.load_weights(model_config['modelsPath']+model_config['modelName']+'_chk.h5', by_name=True)
 
-#         model.fit_generator(trainGen,
-#                            steps_per_epoch=None,
-#                            epochs=model_config['epoch'],
-#                            verbose=2,
-#                            callbacks = [checkpointer, earlyStopping],
-#                            validation_data = valGen,
-#                            validation_steps=len(Xval),
-#                            shuffle=True)
+        model.fit_generator(trainGen,
+                           steps_per_epoch=None,
+                           epochs=model_config['epoch'],
+                           verbose=2,
+                           callbacks = [checkpointer, earlyStopping],
+                           validation_data = valGen,
+                           validation_steps=len(Xval),
+                           shuffle=True)
 
         print('Training finished.')
         
