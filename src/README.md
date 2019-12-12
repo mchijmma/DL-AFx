@@ -16,8 +16,6 @@ json==2.0.9
 
 ## Training and evaluation of models
 
-`python main.py with model_type='pretraining'` 
-
 `python main.py with model_type='CAFx'` 
 
 `python main.py with model_type='WaveNet'` 
