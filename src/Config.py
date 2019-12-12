@@ -7,7 +7,7 @@ def cfg():
     
     # models configuration
     
-    pretraining = { 'epoch' : 1,
+    CAFx = { 'epoch' : 2000,
                     'filters' : 128,
                     'kernelSize' : 64,
                     'learningRate' : 0.0001,
@@ -16,16 +16,7 @@ def cfg():
                     'monitorLoss': 'val_loss'
                    }
     
-    CAFx = { 'epoch' : 1,
-                    'filters' : 128,
-                    'kernelSize' : 64,
-                    'learningRate' : 0.0001,
-                    'winLength' : 4096,
-                    'modelsPath': './Models/',
-                    'monitorLoss': 'val_loss'
-                   }
-    
-    CRAFx = { 'epoch' : 1,
+    CRAFx = { 'epoch' : 2000,
                     'filters' : 32,
                     'kernelSize' : 64,
                     'learningRate' : 0.0001,
@@ -34,7 +25,7 @@ def cfg():
                     'monitorLoss': 'val_loss'
                    }
     
-    CWAFx = { 'epoch' : 1,
+    CWAFx = { 'epoch' : 2000,
                     'filters' : 32,
                     'kernelSize' : 64,
                     'learningRate' : 0.0001,
@@ -54,7 +45,7 @@ def cfg():
                         'target_padding': 0}}
                    }
     
-    WaveNet = { 'epoch' : 1,
+    WaveNet = { 'epoch' : 2000,
                     'learningRate' : 0.0001,
                     'winLength' : 4096,
                     'modelsPath': './Models/',

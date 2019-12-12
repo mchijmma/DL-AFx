@@ -6,17 +6,22 @@ import os
 
 from sacred import Experiment
 from Config import config_ingredient
+
+ex = Experiment('model training', ingredients=[config_ingredient])
+
+import numpy as np
+import math
+
+kSR = 16000
+kContext = 4
+
+import Evaluate
 import Models
 from Layers import Generator, GeneratorWaveNet, GeneratorContext
 import Utils
 
-ex = Experiment('model training', ingredients=[config_ingredient])
 
-import Evaluate
-import numpy as np
-import math
-
-# model_type should be 'pretraining', 'CAFx', 'WaveNet', 'CRAFx' or 'CWAFx'
+# model_type should be 'CAFx', 'WaveNet', 'CRAFx' or 'CWAFx'
 
 @ex.automain
 def main(cfg, model_type):
@@ -38,17 +43,17 @@ def main(cfg, model_type):
         
 
         # Xtrain, Ytrain, Xval, Yval should be tensors of shape (number_of_recordings, number_of_samples, 1) 
-        Xtrain = np.random.rand(1, 32000, 1)
-        Ytrain = np.random.rand(1, 32000, 1)
-        Xval = np.random.rand(1, 32000, 1)
-        Yval = np.random.rand(1, 32000, 1)
+        Xtrain = np.random.rand(1, 2*kSR, 1)
+        Ytrain = np.random.rand(1, 2*kSR, 1)
+        Xval = np.random.rand(1, 2*kSR, 1)
+        Yval = np.random.rand(1, 2*kSR, 1)
         
-        # since the samples are 2 secs long, we zero pad 4*hop_size samples at the end of the recording. This for the 4 
+        # since the samples are 2 secs long, we zero pad kContext*hop_size samples at the end of the recording. This for the 4 
         # subsequent frames in the Leslie modeling tasks.
-        Xtrain = Utils.cropAndPad(Xtrain, crop = 0, pad = 4*model_config['winLength']//2)
-        Ytrain = Utils.cropAndPad(Ytrain, crop = 0, pad = 4*model_config['winLength']//2)
-        Xval = Utils.cropAndPad(Xval, crop = 0, pad = 4*model_config['winLength']//2)
-        Yval = Utils.cropAndPad(Yval, crop = 0, pad = 4*model_config['winLength']//2)
+        Xtrain = Utils.cropAndPad(Xtrain, crop = 0, pad = kContext*model_config['winLength']//2)
+        Ytrain = Utils.cropAndPad(Ytrain, crop = 0, pad = kContext*model_config['winLength']//2)
+        Xval = Utils.cropAndPad(Xval, crop = 0, pad = kContext*model_config['winLength']//2)
+        Yval = Utils.cropAndPad(Yval, crop = 0, pad = kContext*model_config['winLength']//2)
 
         if model_type in 'CAFx':
 
@@ -79,8 +84,8 @@ def main(cfg, model_type):
                                 model_config['kernelSize'], 
                                 model_config['learningRate'])
 
-            trainGen = GeneratorContext(Xtrain, Ytrain, 4, model_config['winLength'], model_config['winLength']//2)
-            valGen = GeneratorContext(Xval, Yval, 4, model_config['winLength'], model_config['winLength']//2)
+            trainGen = GeneratorContext(Xtrain, Ytrain, kContext, model_config['winLength'], model_config['winLength']//2)
+            valGen = GeneratorContext(Xval, Yval, kContext, model_config['winLength'], model_config['winLength']//2)
 
         elif model_type in 'CWAFx':
 
@@ -90,8 +95,8 @@ def main(cfg, model_type):
                                 model_config['learningRate'], 
                                 model_config['wavenetConfig'])
 
-            trainGen = GeneratorContext(Xtrain, Ytrain, 4, model_config['winLength'], model_config['winLength']//2)
-            valGen = GeneratorContext(Xval, Yval, 4, model_config['winLength'], model_config['winLength']//2)
+            trainGen = GeneratorContext(Xtrain, Ytrain, kContext, model_config['winLength'], model_config['winLength']//2)
+            valGen = GeneratorContext(Xval, Yval, kContext, model_config['winLength'], model_config['winLength']//2)
 
             
           

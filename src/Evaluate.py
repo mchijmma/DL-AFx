@@ -15,7 +15,7 @@ import numpy as np
 import math
 import json
 
-kSR = 16000
+from __main__ import kSR, kContext
 
 def evaluate(cfg, model_type, nameModel):
    
@@ -24,12 +24,12 @@ def evaluate(cfg, model_type, nameModel):
     print('Evaluating ', model_config['modelName'], model_type)
 
     # Xtest, Ytestshould be tensors of shape (number_of_recordings, number_of_samples, 1) 
-    Xtest = np.random.rand(1, 32000, 1)
-    Ytest = np.random.rand(1, 32000, 1)
+    Xtest = np.random.rand(1, 2*kSR, 1)
+    Ytest = np.random.rand(1, 2*kSR, 1)
     
     # zero pad at the end as well. 
-    Xtest = Utils.cropAndPad(Xtest, crop = 0, pad = 4*model_config['winLength']//2)
-    Ytest = Utils.cropAndPad(Ytest, crop = 0, pad = 4*model_config['winLength']//2)
+    Xtest = Utils.cropAndPad(Xtest, crop = 0, pad = kContext*model_config['winLength']//2)
+    Ytest = Utils.cropAndPad(Ytest, crop = 0, pad = kContext*model_config['winLength']//2)
     
     kLen = Xtest.shape[1]
     kBatch = int((kLen/(model_config['winLength']//2)) + 1)
@@ -61,7 +61,7 @@ def evaluate(cfg, model_type, nameModel):
                             model_config['kernelSize'], 
                             model_config['learningRate'])
 
-        testGen = GeneratorContext(Xtest, Ytest, 4, model_config['winLength'], model_config['winLength']//2)
+        testGen = GeneratorContext(Xtest, Ytest, kContext, model_config['winLength'], model_config['winLength']//2)
 
 
     elif model_type in 'CWAFx':
@@ -72,7 +72,7 @@ def evaluate(cfg, model_type, nameModel):
                             model_config['learningRate'], 
                             model_config['wavenetConfig'])
 
-        testGen = GeneratorContext(Xtest, Ytest, 4, model_config['winLength'], model_config['winLength']//2)
+        testGen = GeneratorContext(Xtest, Ytest, kContext, model_config['winLength'], model_config['winLength']//2)
 
 
 
