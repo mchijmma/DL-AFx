@@ -35,7 +35,7 @@ def main(cfg, model_type):
     
     try:
 
-        print('Training ', model_config['modelName'])
+        
 
         # Xtrain, Ytrain, Xval, Yval should be tensors of shape (number_of_recordings, number_of_samples, 1) 
         Xtrain = np.random.rand(1, 32000, 1)
@@ -50,19 +50,7 @@ def main(cfg, model_type):
         Xval = Utils.cropAndPad(Xval, crop = 0, pad = 4*model_config['winLength']//2)
         Yval = Utils.cropAndPad(Yval, crop = 0, pad = 4*model_config['winLength']//2)
 
-
-        if model_type in 'pretraining':
-
-            model = Models.pretrainingModel(model_config['winLength'],
-                                model_config['filters'], 
-                                model_config['kernelSize'], 
-                                model_config['learningRate'])
-
-
-            trainGen = Generator(Xtrain, Ytrain, model_config['winLength'], model_config['winLength']//2)
-            valGen = Generator(Xval, Yval, model_config['winLength'], model_config['winLength']//2)
-
-        elif model_type in 'CAFx':
+        if model_type in 'CAFx':
 
             model = Models.CAFx(model_config['winLength'],
                                 model_config['filters'], 
@@ -105,13 +93,55 @@ def main(cfg, model_type):
             trainGen = GeneratorContext(Xtrain, Ytrain, 4, model_config['winLength'], model_config['winLength']//2)
             valGen = GeneratorContext(Xval, Yval, 4, model_config['winLength'], model_config['winLength']//2)
 
-        model.summary()
+            
+          
+        
+        
+        
+        if model_type in ['CAFx', 'CRAFx', 'CWAFx']:
+            
+            print ('pretraining ', model_config['modelName'], model_type)
+            
+            earlyStopping_pre = Models.EarlyStopping(monitor='loss',
+                                          min_delta=0,
+                                          patience=25,
+                                          verbose=1,
+                                          mode='auto',
+                                          baseline=None, restore_best_weights=False)
 
-        # load pretrained model if available:
-    #         model.load_weights(path_preatrained_model, by_name=True) 
+            checkpointer_pre = Models.ModelCheckpoint(filepath=model_config['modelsPath']+model_config['modelName']+'_chk.h5',
+                                               monitor=model_config['monitorLoss'],
+                                               verbose=1,
+                                               save_best_only=True,
+                                               save_weights_only=True)  
+            
+            model_pretraining = Models.pretrainingModel(model_config['winLength'],
+                                    model_config['filters'], 
+                                    model_config['kernelSize'], 
+                                    model_config['learningRate'])
 
 
-
+            Xtrain_pre = np.vstack((Xtrain, Ytrain))
+            Xval_pre = np.vstack((Xval, Yval))
+            trainGen_pre = Generator(Xtrain_pre, Xtrain_pre, model_config['winLength'], model_config['winLength']//2)
+            valGen_pre = Generator(Xval_pre, Xval_pre, model_config['winLength'], model_config['winLength']//2)   
+            
+            model_pretraining.fit_generator(trainGen_pre,
+                           steps_per_epoch=None,
+                           epochs=model_config['epoch'],
+                           verbose=2,
+                           callbacks = [checkpointer_pre, earlyStopping_pre],
+                           validation_data = valGen_pre,
+                           validation_steps=len(Xval),
+                           shuffle=True)
+            
+            model.load_weights(model_config['modelsPath']+model_config['modelName']+'_chk.h5', by_name=True) 
+            print ('Pretraining finished.')
+                
+        print('Training ', model_config['modelName'], model_type)
+        
+        model.summary()        
+        
         earlyStopping = Models.EarlyStopping(monitor=model_config['monitorLoss'],
                                           min_delta=0,
                                           patience=25,
@@ -123,7 +153,7 @@ def main(cfg, model_type):
                                            monitor=model_config['monitorLoss'],
                                            verbose=1,
                                            save_best_only=True,
-                                           save_weights_only=True)
+                                           save_weights_only=True)  
 
         model.fit_generator(trainGen,
                            steps_per_epoch=None,

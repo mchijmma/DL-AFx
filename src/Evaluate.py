@@ -21,7 +21,7 @@ def evaluate(cfg, model_type, nameModel):
    
     model_config = cfg[model_type]
 
-    print('Evaluating ', model_config['modelName'])
+    print('Evaluating ', model_config['modelName'], model_type)
 
     # Xtest, Ytestshould be tensors of shape (number_of_recordings, number_of_samples, 1) 
     Xtest = np.random.rand(1, 32000, 1)
@@ -32,19 +32,9 @@ def evaluate(cfg, model_type, nameModel):
     Ytest = Utils.cropAndPad(Ytest, crop = 0, pad = 4*model_config['winLength']//2)
     
     kLen = Xtest.shape[1]
-    kBatch = int(kLen/model_config['winLength']//2 + 1)
+    kBatch = int((kLen/(model_config['winLength']//2)) + 1)
 
-    if model_type in 'pretraining':
-
-        model = Models.pretrainingModel(model_config['winLength'],
-                            model_config['filters'], 
-                            model_config['kernelSize'], 
-                            model_config['learningRate'])
-
-
-        testGen = Generator(Xtest, Ytest, model_config['winLength'], model_config['winLength']//2)
-
-    elif model_type in 'CAFx':
+    if model_type in 'CAFx':
 
         model = Models.CAFx(model_config['winLength'],
                             model_config['filters'], 
