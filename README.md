@@ -1,7 +1,7 @@
-### [Deep Learning for Black-Box Modeling of Audio Effects](http:link.to.paper)
+### [Deep Learning for Black-Box Modeling of Audio Effects](https://www.mdpi.com/2076-3417/10/2/638)
 
 
-[Accompanying  website](https://mchijmma.github.io/DL-AFx/) for the [paper](http:link.to.paper):
+[Accompanying  website](https://mchijmma.github.io/DL-AFx/) for the [paper](https://www.mdpi.com/2076-3417/10/2/638):
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Martínez Ramírez M. A.](http://m-marco.com), [Benetos, E.](https://www.eecs.qmul.ac.uk/~emmanouilb/) and [Reiss J. D.](http://www.eecs.qmul.ac.uk/~josh/), “Deep Learning for Black-Box Modeling of Audio Effects” submitted to the Applied Sciences: Acoustics and Vibration - Digital Audio Effects special issue, December, 2019.
 
@@ -627,11 +627,19 @@ Audio samples from the listening test:
 Please use Mozilla Firefox or Google Chrome.
 This project is maintained by <a href="https://m-marco.com">{{ "Marco Martínez" }}</a>.
 
-<!--
+
 &nbsp;
 ### Citation
->@aticle{martinez2019deep,<br />
+>@aticle{martinez2020deep,<br />
 >   title={Deep Learning for Black-Box Modeling of Audio Effects},<br />
 >   author={Mart\'{i}nez Ram\'{i}rez, Marco A and Benetos, Emmanouil and Reiss, Joshua D},<br />
->   booktitle={Applied Sciences}<br />
->}<br /> -->
+>   journal={Applied Sciences},<br />
+>   volume={10},<br />
+>   number={2},<br />
+>   pages={638},<br />
+>   year={2020},<br />
+>   publisher={Multidisciplinary Digital Publishing Institute}<br />
+>}<br />
+
+
+
