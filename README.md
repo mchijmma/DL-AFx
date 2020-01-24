@@ -3,7 +3,7 @@
 
 [Accompanying  website](https://mchijmma.github.io/DL-AFx/) for the [paper](https://www.mdpi.com/2076-3417/10/2/638):
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Martínez Ramírez M. A.](http://m-marco.com), [Benetos, E.](https://www.eecs.qmul.ac.uk/~emmanouilb/) and [Reiss J. D.](http://www.eecs.qmul.ac.uk/~josh/), “Deep Learning for Black-Box Modeling of Audio Effects” Applied Sciences 10, no. 2, p.638, Jan 2020.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Martínez Ramírez M. A.](http://m-marco.com), [Benetos, E.](https://www.eecs.qmul.ac.uk/~emmanouilb/) and [Reiss J. D.](http://www.eecs.qmul.ac.uk/~josh/), “Deep Learning for Black-Box Modeling of Audio Effects” Applied Sciences 10, no. 2, p.638, January 2020.
 
 [View the source code.](https://github.com/mchijmma/DL-AFx/tree/master/src)
 
@@ -637,6 +637,7 @@ This project is maintained by <a href="https://m-marco.com">{{ "Marco Martínez"
 >   volume={10},<br />
 >   number={2},<br />
 >   pages={638},<br />
+>   month={January},<br />
 >   year={2020},<br />
 >   publisher={Multidisciplinary Digital Publishing Institute}<br />
 >}<br />
