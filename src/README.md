@@ -2,4 +2,4 @@
 
 Due to a new license, the code is no longer public. 
 
-If you need the source code for academic purposes, please send an email to m.a.martinezramirez@qmul.ac.uk
+If you need the source code for academic purposes, please send an email to contact@m-marco.com
